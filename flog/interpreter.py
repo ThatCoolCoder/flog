@@ -13,7 +13,11 @@ class Interpreter:
         self.__setup_variables(input_values)
         
         program_idx = 0
-        while True:
+        while program_idx < len(program):
+            if program[program_idx].isspace():
+                program_idx += 1
+                continue
+            
             function = self.__get_function_with_name(program[program_idx])
             variable = self.__get_variable_with_name(program[program_idx])
             # If there is a function with that name, try calling it
@@ -37,10 +41,7 @@ class Interpreter:
                 # Move it past the variable value, the variable delimiter and onto the start of the next command
                 program_idx += len(string_value) + 1 + len(self.VARIABLE_DELIMITER)
             else:
-                raise ValueError(f'Unknown command or variable {program[program_idx]}')
-
-            if program_idx >= len(program):
-                break
+                raise ValueError(f'Unknown command or variable: "{program[program_idx]}"')
 
     def __setup_variables(self, input_values: List[Tuple[VariableType, Any]] = []):
         self.variables = reset_variables.reset_variables()

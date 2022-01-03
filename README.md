@@ -66,21 +66,29 @@ Examples:
 
 ## List of functions
 
-None of these have been implemented yet, this is just planning.
-
-#### Basic IO and program flow:
+#### Basic IO
 
 - `o` (1 arg). Output the supplied value.
 - `O` (1 arg). Output the supplied value and quit the program.
 - `p` (1 arg). Output the supplied value followed by a newline.
 - `P` (1 arg). Output the supplied value followed by a newline and quit the program.
 - `q` (0 args). Quit the program.
+- `Q` (1 arg). Quit the program if arg 1 is not 0
+
+#### Program flow:
+- `=` (3 args). Set arg 3 to true if arg 1 and arg 2 are equal. Else set it to false 
 
 #### Math:
 
 - `a` (2 args). Add arg 1 and arg 2 together, and write the result into arg 2.
 - `A` (3 args). Add arg 1 and arg 2 together, and write the result into arg 3.
 - `+` (1 arg). Increment arg 1.
+- `-` (1 arg). Decrement arg 1.
+
+#### Other:
+
+- `h` (0 args). Print `Hello, World!` followed by a newline.
+- `h` (1 arg). Write `Hello, World!` into the supplied value
 
 ## Whitespace
 
