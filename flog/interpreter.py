@@ -5,7 +5,7 @@ from flog import Variable, VariableType, reset_variables, functions
 class Interpreter:
     def __init__(self):
 
-        self.VARIABLE_DELIMITER = '%'
+        self.VARIABLE_DELIMITER = '^'
     
     def run(self, program: str, input_values: List[Tuple[VariableType, Any]] = []):
         # Run string as Flog program
@@ -17,7 +17,7 @@ class Interpreter:
             if program[program_idx].isspace():
                 program_idx += 1
                 continue
-            
+
             function = self.__get_function_with_name(program[program_idx])
             variable = self.__get_variable_with_name(program[program_idx])
             # If there is a function with that name, try calling it

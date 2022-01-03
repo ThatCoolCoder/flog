@@ -42,6 +42,5 @@ if __name__ == '__main__':
             input_values.append((next_value_type, value))
 
             next_value_type = None
-
     interpreter = Interpreter()
     interpreter.run(program, input_values)

@@ -14,6 +14,15 @@ Example:
 
 `python3 -m flog a12o02 -n 14 -n 16 -s "Hello world" -ln "4,5,3,5" -ls "he,ll,o`
 
+## Examples
+
+State if thing is odd or even:
+
+`4Odd^:8404Even^+0:840+0f16c061;814p4`
+
+Not very short because all of the useful functions don't exist yet.
+
+
 ## Variables
 
 This language is variable-based (unlike some other golfing languages). Variables are represented by the characters 0-9 plus some others. Variables can be of type `number`, `string`, or `list`. Lists can contain numbers or strings. See `Table of variables` for specifics on what each variable does.
@@ -39,7 +48,7 @@ Many of the variables are used as inputs. If an input of their type is passed to
 
 ## Variables are cool, but how do I actually code something?
 
-Code in this language is made up of a sequence of commands. A command either sets a variable or calls an in-built function. No separator is required after a command calling a function - the length of the command can be determined by the function's name (which is a single character) and the number of arguments. However, after setting a variable, the following character must be a precent sign. (this is known as the variable delimiter)
+Code in this language is made up of a sequence of commands. A command either sets a variable or calls an in-built function. No separator is required after a command calling a function - the length of the command can be determined by the function's name (which is a single character) and the number of arguments. However, after setting a variable, the following character must be a `^`. (this is known as the variable delimiter)
 
 #### Setting variables
 
@@ -75,20 +84,41 @@ Examples:
 - `q` (0 args). Quit the program.
 - `Q` (1 arg). Quit the program if arg 1 is not 0
 
-#### Program flow:
-- `=` (3 args). Set arg 3 to true if arg 1 and arg 2 are equal. Else set it to false 
+#### Comparing
+- `=` (3 args). Set arg 3 to true if arg 1 and arg 2 are equal. Else set it to false
+- `e` (1 arg). If arg 1 is even, set arg 1 to 1. Else set it to 0.
+- `E` (2 args). If arg 1 is even, set arg 2 to 1. Else set it to 0.
 
-#### Math:
+#### Basic math
 
 - `a` (2 args). Add arg 1 and arg 2 together, and write the result into arg 2.
 - `A` (3 args). Add arg 1 and arg 2 together, and write the result into arg 3.
+- `s` (2 args). Subtract arg 2 from arg 1, and write the result into arg 2.
+- `S` (3 args). Subtract arg 2 from arg 1, and write the result into arg 3.
+- `m` (2 args). Multiply arg 1 and arg 2 together, and write the result into arg 2.
+- `M` (3 args). Multiply arg 1 and arg 2 together, and write the result into arg 3.
 - `+` (1 arg). Increment arg 1.
 - `-` (1 arg). Decrement arg 1.
 
-#### Other:
+#### Not basic math
+
+- `f` (2 args). Find factors of arg 1 and write them as a list into arg 2
+- `F` (2 args). Find prime factors of arg 1 and write them as a list into arg 2
+
+#### Lists
+
+- `c` (3 args). If arg 2 (a list) contains arg 1, write 1 into arg 3. Else write 0.
+- `C` (3 args). If arg 2 (a list) contains arg 1, write 0 into arg 3. Else write 1.
+- `;` (3 args). Access item in arg 1 (a list) at index of arg 2, and write result into arg 3.
+- `:` (3 args). Write arg 2 into arg 1 (a list) at index of arg 3.
+- `l` (2 args). Write length of arg 1 (a list) into arg 2.
+- `L` (2 args). Write one less than the length of arg 1 (a list) into arg 2.
+- `/` (2 args). Append arg 2 to arg 1.
+
+#### Other
 
 - `h` (0 args). Print `Hello, World!` followed by a newline.
-- `h` (1 arg). Write `Hello, World!` into the supplied value
+- `H` (1 arg). Write `Hello, World!` into the supplied value
 
 ## Whitespace
 
