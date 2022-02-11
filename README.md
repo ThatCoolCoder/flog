@@ -82,7 +82,7 @@ Examples:
 - `p` (1 arg). Output the supplied value followed by a newline.
 - `P` (1 arg). Output the supplied value followed by a newline and quit the program.
 - `q` (0 args). Quit the program.
-- `Q` (1 arg). Quit the program if arg 1 is not 0
+- `Q` (1 arg). Quit the program if arg 1 is not 0.
 
 #### Comparing
 - `=` (3 args). Set arg 3 to true if arg 1 and arg 2 are equal. Else set it to false
@@ -102,8 +102,8 @@ Examples:
 
 #### Not basic math
 
-- `f` (2 args). Find factors of arg 1 and write them as a list into arg 2
-- `F` (2 args). Find prime factors of arg 1 and write them as a list into arg 2
+- `f` (2 args). Find factors of arg 1 and write them as a list into arg 2.
+- `F` (2 args). Find prime factors of arg 1 and write them as a list into arg 2.
 
 #### Lists
 
@@ -115,9 +115,14 @@ Examples:
 - `L` (2 args). Write one less than the length of arg 1 (a list) into arg 2.
 - `/` (2 args). Append arg 2 to arg 1.
 
+#### "Branching"
+
+- `i` (3 args). If arg 1 is not 0, write arg 2 into arg 3.
+- `I` (3 args). If arg 1 is 0, output arg 2, else output arg 3.
+
 #### Other
 
-- `h` (0 args). Print `Hello, World!` followed by a newline.
+- `h` (0 args). Print `Hello, World!` followed by a newline
 - `H` (1 arg). Write `Hello, World!` into the supplied value
 
 ## Whitespace

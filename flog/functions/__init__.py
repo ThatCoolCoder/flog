@@ -3,6 +3,8 @@ from .function import Function
 # Instantiate one of each function class to use
 data = []
 
+#region Basic IO
+
 def o(variable):
     print(variable.value, end='')
 data.append(Function('o', 1, o))
@@ -30,9 +32,13 @@ def Q(variable):
         quit()
 data.append(Function('Q', 1, Q))
 
+#endregion Basic IO
+
+#region Comparing
+
 def equals(var1, var2, var3):
     var3.value = (var1.value == var2.value)
-data.append(Function('equals', 3, equals))
+data.append(Function('=', 3, equals))
 
 def e(variable):
     variable.value = 1 - variable.value % 2
@@ -41,6 +47,10 @@ data.append(Function('e', 1, e))
 def E(var1, var2):
     var2.value = 1 - var1.value % 2
 data.append(Function('E', 2, E))
+
+#endregion Comparing
+
+#region Basic math
 
 def a(var1, var2):
     var2.value += var1.value
@@ -68,11 +78,15 @@ data.append(Function('M', 1, M))
 
 def plus(variable):
     variable.value += 1
-data.append(Function('plus', 1, plus))
+data.append(Function('+', 1, plus))
 
 def minus(variable):
     variable.value -= 1
-data.append(Function('minus', 1, minus))
+data.append(Function('-', 1, minus))
+
+#endregion Basic math
+
+#region Not basic math
 
 def f(var1, var2):
     var2.value = []
@@ -85,6 +99,10 @@ def F(var1, var2):
     print('Sorry, haven\'t implemented F yet')
 data.append(Function('F', 2, F))
 
+#endregion Not basic math
+
+#region Lists
+
 def c(var1, var2, var3):
     var3.value = (var1.value in var2.value)
 data.append(Function('c', 3, c))
@@ -95,12 +113,12 @@ data.append(Function('C', 3, C))
 
 def semicolon(var1, var2, var3):
     var3.value = var1.value[var2.value]
-data.append(Function('semicolon', 3, semicolon))
+data.append(Function(':', 3, semicolon))
 
 def colon(var1, var2, var3):
     var1.value = [*var1.value, *[''] * (len(var1.value) - var3.value + 1)]
     var1.value[var3.value] = var2.value
-data.append(Function('colon', 3, colon))
+data.append(Function(':', 3, colon))
 
 def l(var1, var2):
     var2.value = len(var1)
@@ -112,7 +130,27 @@ data.append(Function('L', 2, L))
 
 def slash(var1, var2):
     var1.value.append(var2.value)
-data.append(Function('slash', 2, slash))
+data.append(Function('/', 2, slash))
+
+#endregion Lists
+
+#region "Branching"
+
+def i(var1, var2, var3):
+    if var1.value != 0:
+        var3.value = var2.value
+data.append(Function('i', 3, i))
+
+def I(var1, var2, var3):
+    if var1.value == 0:
+        print(var2.value)
+    else:
+        print(var3.value)
+data.append(Function('I', 3, I))
+
+#endregion "Branching"
+
+#region Other
 
 def h():
     print('Hello, World!')
@@ -121,3 +159,5 @@ data.append(Function('h', 0, h))
 def H(variable):
     variable.value = 'Hello, World!'
 data.append(Function('H', 1, H))
+
+#endregion Other
